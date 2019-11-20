@@ -14,13 +14,11 @@ class FlutterVault extends StatelessWidget {
         ? CupertinoApp(
             debugShowCheckedModeBanner: false,
             title: FieldConstants.APP_TITLE,
-            theme: CupertinoThemeData(primaryColor: Colors.deepPurple),
             home: LoginPage(),
           )
         : MaterialApp(
             debugShowCheckedModeBanner: false,
             title: FieldConstants.APP_TITLE,
-            theme: ThemeData(primaryColor: Colors.deepPurple),
             home: LoginPage(),
           );
   }
