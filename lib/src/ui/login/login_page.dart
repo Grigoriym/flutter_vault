@@ -122,6 +122,21 @@ class _LoginPageState extends State<LoginPage> {
                                     offset: Offset(0.0, 8.0),
                                     blurRadius: 8.0)
                               ]),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              child: Center(
+                                child: Text(
+                                  "Signing",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: "Poppins-Bold",
+                                      fontSize: 18.0,
+                                      letterSpacing: 1.0),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       )
                     ],
