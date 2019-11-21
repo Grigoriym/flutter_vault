@@ -1,12 +1,38 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_vault/src/utils/widgets/form_card_widget.dart';
 
 class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _isSelected = false;
+
+  void _radio() {
+    setState(() {
+      _isSelected = !_isSelected;
+    });
+  }
+
+  Widget radioButton(bool isSelected) => Container(
+        width: 16.0,
+        height: 16.0,
+        padding: EdgeInsets.all(2.0),
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(width: 2.0, color: Colors.black)),
+        child: isSelected
+            ? Container(
+                width: double.infinity,
+                height: double.infinity,
+                decoration:
+                    BoxDecoration(shape: BoxShape.circle, color: Colors.black),
+              )
+            : Container(),
+      );
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
@@ -56,44 +82,49 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: ScreenUtil.getInstance().setHeight(180),
                   ),
-                  Container(
-                    width: double.infinity,
-                    height: ScreenUtil.getInstance().setHeight(500),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black12,
-                              offset: Offset(0.0, 15.0),
-                              blurRadius: 15.0),
-                          BoxShadow(
-                              color: Colors.black12,
-                              offset: Offset(0.0, -10.0),
-                              blurRadius: 10.0)
-                        ]),
-                    child: Padding(
-                      padding:
-                          EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                  FormCard(),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
                         children: <Widget>[
-                          Text(
-                            "Login",
-                            style: TextStyle(
-                                fontSize: ScreenUtil.getInstance().setSp(45),
-                                fontFamily: "Poppins-Bold",
-                                letterSpacing: .6),
+                          SizedBox(width: 12.0),
+                          GestureDetector(
+                            onTap: _radio,
+                            child: radioButton(_isSelected),
                           ),
                           SizedBox(
-                            height: ScreenUtil.getInstance().setHeight(30),
+                            width: 0.0,
                           ),
                           Text(
-                            "f"
+                            "Remember me",
+                            style: TextStyle(
+                                fontSize: 12.0, fontFamily: "Poppins-Medium"),
                           )
                         ],
                       ),
-                    ),
+                      InkWell(
+                        child: Container(
+                          width: ScreenUtil.getInstance().setWidth(330),
+                          height: ScreenUtil.getInstance().setHeight(100),
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(colors: [
+                                Color(0xFF17ead9),
+                                Color(0xFF6078ea)
+                              ]),
+                              borderRadius: BorderRadius.circular(6.0),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xFF6078ea).withOpacity(.3),
+                                    offset: Offset(0.0, 8.0),
+                                    blurRadius: 8.0)
+                              ]),
+                        ),
+                      )
+                    ],
                   )
                 ],
               ),
