@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_vault/src/utils/custom_icons.dart';
 import 'package:flutter_vault/src/utils/widgets/form_card_widget.dart';
+import 'package:flutter_vault/src/utils/widgets/social_icon_widget.dart';
 
 class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
@@ -32,6 +33,14 @@ class _LoginPageState extends State<LoginPage> {
               )
             : Container(),
       );
+
+  Widget horizontalLine() => Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.0),
+      child: Container(
+        width: ScreenUtil.getInstance().setWidth(120),
+        height: 1.0,
+        color: Colors.black26.withOpacity(.2),
+      ));
 
   @override
   Widget build(BuildContext context) {
@@ -125,6 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Material(
                             color: Colors.transparent,
                             child: InkWell(
+                              onTap: () {},
                               child: Center(
                                 child: Text(
                                   "Signing",
@@ -138,6 +148,81 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      horizontalLine(),
+                      Text(
+                        "Social Login",
+                        style: TextStyle(
+                            fontSize: 16.0, fontFamily: "Poppins-Medium"),
+                      ),
+                      horizontalLine()
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF102397),
+                          Color(0xFF187adf),
+                          Color(0xFF00eaf8),
+                        ],
+                        iconData: CustomIcons.facebook,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFFff4f38),
+                          Color(0xFFff355d),
+                        ],
+                        iconData: CustomIcons.googlePlus,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF17ead9),
+                          Color(0xFF6078ea),
+                        ],
+                        iconData: CustomIcons.twitter,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF00c6fb),
+                          Color(0xFF005bea),
+                        ],
+                        iconData: CustomIcons.linkedin,
+                        onPressed: () {},
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(30),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        "New User?",
+                        style: TextStyle(fontFamily: "Poppins-Medium"),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Text("SignUp",
+                            style: TextStyle(
+                                color: Color(0xFF5d74e3),
+                                fontFamily: "Poppins-Bold")),
                       )
                     ],
                   )
