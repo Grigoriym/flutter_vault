@@ -44,7 +44,9 @@ class _LoginSecondPageState extends State<LoginSecondPage> {
     );
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text("Login page"),
+      ),
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints: BoxConstraints(),
@@ -68,9 +70,7 @@ class _LoginSecondPageState extends State<LoginSecondPage> {
                       height: 45.0,
                     ),
                     emailField,
-                    SizedBox(
-                        height: 25.0
-                    ),
+                    SizedBox(height: 25.0),
                     passwordField,
                     SizedBox(
                       height: 35.0,
