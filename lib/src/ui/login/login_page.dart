@@ -98,22 +98,22 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          SizedBox(width: 12.0),
-                          GestureDetector(
-                            onTap: _radio,
-                            child: radioButton(_isSelected),
-                          ),
-                          SizedBox(
-                            width: 0.0,
-                          ),
-                          Text(
-                            "Remember me",
-                            style: TextStyle(
-                                fontSize: 12.0, fontFamily: "Poppins-Medium"),
-                          )
-                        ],
+                      InkWell(
+                        onTap: _radio,
+                        child: Row(
+                          children: <Widget>[
+                            SizedBox(width: 12.0),
+                            radioButton(_isSelected),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            Text(
+                              "Remember me",
+                              style: TextStyle(
+                                  fontSize: 12.0, fontFamily: "Poppins-Medium"),
+                            )
+                          ],
+                        ),
                       ),
                       InkWell(
                         child: Container(
