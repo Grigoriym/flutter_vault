@@ -4,11 +4,11 @@ import 'package:flutter_vault/src/utils/custom_icons.dart';
 import 'package:flutter_vault/src/utils/widgets/form_card_widget.dart';
 import 'package:flutter_vault/src/utils/widgets/social_icon_widget.dart';
 
-class LoginPage extends StatefulWidget {
-  _LoginPageState createState() => _LoginPageState();
+class LoginFirstPage extends StatefulWidget {
+  _LoginFirstPageState createState() => _LoginFirstPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginFirstPageState extends State<LoginFirstPage> {
   bool _isSelected = false;
 
   void _radio() {
