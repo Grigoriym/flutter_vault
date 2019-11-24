@@ -44,7 +44,7 @@ class FormCard extends StatelessWidget {
             ),
             TextField(
               decoration: InputDecoration(
-                  hintText: "username",
+                  hintText: "Username",
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 12.0)),
             ),
             SizedBox(
