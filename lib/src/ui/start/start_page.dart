@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vault/src/ui/login/login_first_page.dart';
 import 'package:flutter_vault/src/ui/login/login_second_page.dart';
+import 'package:flutter_vault/src/ui/noteslist/notes_list_page.dart';
 
 class StartPage extends StatelessWidget {
   Future navigateToLoginPage(context) async {
@@ -11,6 +12,11 @@ class StartPage extends StatelessWidget {
   Future navigateToSecondLoginPage(context) async {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => LoginSecondPage()));
+  }
+
+  Future navigateToNotesListPage(context) async {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => NotesList()));
   }
 
   @override
@@ -38,7 +44,15 @@ class StartPage extends StatelessWidget {
               onPressed: () {
                 navigateToSecondLoginPage(context);
               },
-            )
+            ),
+            RaisedButton(
+              textColor: Colors.white,
+              color: Colors.blue,
+              child: Text("Notes List"),
+              onPressed: () {
+                navigateToNotesListPage(context);
+              },
+            ),
           ],
         ),
       ),
