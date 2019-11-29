@@ -50,4 +50,33 @@ class DbHelper {
             "${FieldConstants.COLUMN_TEXT} ASC");
     return result.toList();
   }
+
+  Future<int> getCount() async {
+    var dbClient = await db;
+    int count = Sqflite.firstIntValue(await dbClient
+        .rawQuery("SELECT COUNT (*) FROM ${FieldConstants.TABLE_NAME}"));
+    return count;
+  }
+
+  Future<Note> getSingleItem(int id) async {
+    var dbClient = await db;
+    var result = await dbClient.rawQuery(
+        "SELECT * FROM ${FieldConstants.TABLE_NAME} WHERE ${FieldConstants.COLUMN_ID} = $id");
+    if (result == null) return null;
+    return new Note.fromMap(result.first);
+  }
+
+  Future<int> deleteItem(int id) async {
+    var dbClient = await db;
+    int count = await dbClient.delete(FieldConstants.TABLE_NAME,
+        where: "${FieldConstants.COLUMN_ID} = ?", whereArgs: [id]);
+    return count;
+  }
+
+  Future<int> updateItem(Note note) async {
+    var dbClient = await db;
+    int count = await dbClient.update(FieldConstants.TABLE_NAME, note.toMap(),
+        where: "${FieldConstants.COLUMN_ID} = ?", whereArgs: [note.id]);
+    return count;
+  }
 }
